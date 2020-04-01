@@ -67,10 +67,5 @@ public class AppController {
 		
 		return "redirect:/";
 	}
-	public int tunnelTest(int x) {
-		int y = x*x;
-		
-		return y;
-	}
 	
 }

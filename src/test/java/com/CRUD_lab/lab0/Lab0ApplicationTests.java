@@ -1,13 +1,14 @@
 package com.CRUD_lab.lab0;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+
+//@RunWith(SpringJUnit4ClassRunner.class)
 class Lab0ApplicationTests {
+	
 
-	@Test
+	/*@Test
 	void contextLoads() {
-	}
+		
+	}*/
 
 }
