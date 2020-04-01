@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Product</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+<div class="jumbotron">
+<div class="well" align="center">
+	<h2>Add new product</h2>
+	<form action="#" th:action="@{/save}" th:object="${product}" method="post">
+		<table class="table table-dark">
+			<tr>
+				<td>Product name</td>
+				<td><input type="text" th:field="*{prod_name}"></td>
+			</tr>
+			<tr>
+				<td>Product brand</td>
+				<td><input type="text" th:field="*{prod_brand}"></td>
+			</tr>
+			<tr>
+				<td>Product price</td>
+				<td><input type="text" th:field="*{prod_price}"></td>
+			</tr>
+			<tr>
+				<td colspan=2>
+				 <input type="submit" value="Insert" role="button" class="btn btn-success">
+				 <input type="reset" value="Cancel" role="button" class="btn btn-danger">
+				
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+</div>
+</body>
+</html>

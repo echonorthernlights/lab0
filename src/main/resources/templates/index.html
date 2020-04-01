@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Products</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="jumbotron">
+<div class="well" align="center">
+	<h2>Product(s) list</h2>
+	<table class="table table-dark">
+		<tr>
+		<td>
+				product id
+			</td>
+			<td>
+				product ref
+			</td>
+			<td>
+				product name
+			</td>
+			<td>
+				product brand
+			</td>
+			<td>
+				product price
+			</td>
+			<td>
+				operations
+			</td>
+		</tr>
+		<tr th:each="product : ${listOfProducts}">
+		<td th:text="${product.id}"></td>
+			<td th:text="${product.prod_ref}"></td>
+			<td th:text="${product.prod_name}"></td>
+			<td th:text="${product.prod_brand}"></td>
+			<td th:text="${product.prod_price}"></td>
+			<td><a th:href="@{'/delete/' + ${product.id}}" role="button" class="btn btn-danger">Delete</a> | <a th:href="@{'/update/' + ${product.id}}" role="button" class="btn btn-info">Update</a></td>
+		</tr>
+	</table>
+	<a href="add" role="button" class="btn btn-success">Add product</a>
+</div>
+</div>
+</body>
+</html>
