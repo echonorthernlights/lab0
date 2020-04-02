@@ -5,6 +5,9 @@ import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @Component
 public class Utils {
 	private final Random RANDOM = new SecureRandom();
@@ -20,6 +23,15 @@ public class Utils {
 			returnValue.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
 		}
 		return new String(returnValue);
+	}
+	
+	public String mapToJson(Object object) throws JsonProcessingException {
+		return JsonMapping(object);
+	}
+	
+	private String JsonMapping(Object object) throws JsonProcessingException {
+		ObjectMapper objectMapper = new ObjectMapper();
+		return objectMapper.writeValueAsString(object);
 	}
 	
 

@@ -26,7 +26,7 @@ public class AppController {
 	@Autowired
 	Utils utils;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/", method=RequestMethod.GET)
 	public String viewHomePage(Model model)
 	{
 		List<Product> listProducts = productService.listAll();
@@ -51,7 +51,7 @@ public class AppController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/update/{id}")
+	@RequestMapping(value = "/update/{id}" , method=RequestMethod.PUT)
 	public ModelAndView showUpdateForm(@PathVariable(name = "id") Long id)
 	{
 		ModelAndView mav = new ModelAndView("update_product");
