@@ -8,14 +8,12 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -23,9 +21,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.CRUD_lab.lab0.Controller.AppController;
 import com.CRUD_lab.lab0.models.Product;
 import com.CRUD_lab.lab0.service.ProductService;
 import com.CRUD_lab.lab0.shared.Utils;
@@ -61,10 +56,9 @@ class Lab0ApplicationTests {
 	@Test
 	public void viewHomePageTest() throws Exception {	
 		when(productService.listAll()).thenReturn(Arrays.asList(product));
-		MvcResult mvcResult = mockMvc.perform(
+		mockMvc.perform(
 				MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON)
 				).andReturn();
-	//	System.out.println(mvcResult.getResponse());
 		verify(productService).listAll();
 	}
 	
