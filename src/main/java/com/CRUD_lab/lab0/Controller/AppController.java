@@ -51,7 +51,7 @@ public class AppController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/update/{id}" , method=RequestMethod.PUT)
+	@RequestMapping(value = "/update/{id}" )
 	public ModelAndView showUpdateForm(@PathVariable(name = "id") Long id)
 	{
 		ModelAndView mav = new ModelAndView("update_product");
